@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+def partition(sample,start,end):
+   pivot = sample[end]
+   index = start 
+   current = start
+   while(start < end):
+      if(sample[current] < pivot):
+         sample[index],sample[current] = sample[current],sample[index]
+         index = index + 1
+   current = current + 1
+   sample[index],sample[end] = sample[end],sample[index]
+   print(" partitioned :", sample)
+   return index 
+
+def quicksort(sample,start,end):
+   index = partiton(sample,start,end)
+   while(start < end):
+      partition(sample,start,index-1)
+      partition(sample,index+1,end)
+sample = [7,2,1,6,8,5,3,4]
+quicksort(sample,0,7)
+  
+ 
